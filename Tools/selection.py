@@ -44,7 +44,8 @@ def select_exercise():
     # Iterate though all exercise folders and store their names in a list.
     for filepath in glob.iglob('../Exercises/**', recursive=False):
         exercise = filepath.split('/')[-1]
-        choices.append(exercise)
+        if (exercise != 'Other'):
+            choices.append(exercise)
 
     question = [inquirer.List('exercise',
                 message='Pick an Exercise',
